@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    color-scheme: dark;
+    --bg: #191919;
+    --card-a: #232323;
+    --card-b: #1b1b1b;
+    --border: #2f2f2f;
+    --text: #edeae6;
+    --muted: #a09a92;
+    --faint: #7d7871;
+    --track: #33302b;
+    --ring: rgba(255,255,255,.45);
+    --g-year: linear-gradient(90deg, #d4785a, #e8a386);
+    --g-month: linear-gradient(90deg, #7ea9cc, #a9cbe5);
+    --g-week: linear-gradient(90deg, #86bfa0, #b3ddc4);
+    --orb-a: #8a5a48; --orb-b: #3f5163; --orb-c: #4b4263;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: light;
+      --bg: #fbf8f3;
+      --card-a: #fbf7f0;
+      --card-b: #f6efe3;
+      --border: #e9e1d3;
+      --text: #2c2b29;
+      --muted: #7d7468;
+      --faint: #a2968a;
+      --track: #eae2d4;
+      --ring: rgba(0,0,0,.34);
+      --g-year: linear-gradient(90deg, #d96f4c, #e89d80);
+      --g-month: linear-gradient(90deg, #5f97c4, #92bbdb);
+      --g-week: linear-gradient(90deg, #6aa885, #99cead);
+      --orb-a: #f4cdb9; --orb-b: #e0eaf4; --orb-c: #eae4f6;
+    }
+  }
+  html, body { background: var(--bg); }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    padding: 0;
+  }
+  .card {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background: linear-gradient(135deg, var(--card-a) 0%, var(--card-b) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 26px 32px 28px;
+  }
+  .orb { position: absolute; border-radius: 50%; pointer-events: none; }
+  .orb.a { width: 300px; height: 300px; right: -90px; top: -150px; background: radial-gradient(circle at 30% 30%, var(--orb-a), transparent 70%); opacity: .55; }
+  .orb.b { width: 200px; height: 200px; right: 180px; top: -130px; background: radial-gradient(circle at 30% 30%, var(--orb-b), transparent 70%); opacity: .45; }
+  .orb.c { width: 160px; height: 160px; right: 30px; bottom: -100px; background: radial-gradient(circle at 30% 30%, var(--orb-c), transparent 70%); opacity: .40; }
+
+  .top { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .dateline { font-size: 34px; font-weight: 650; letter-spacing: -.025em; line-height: 1.05; }
+  .sub { font-size: 13.5px; line-height: 1.5; color: var(--muted); margin-top: 9px; letter-spacing: .005em; max-width: 780px; }
+  .chip {
+    font-size: 11.5px; font-weight: 650; letter-spacing: .10em; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--border); border-radius: 99px;
+    padding: 7px 13px; white-space: nowrap; margin-bottom: 4px;
+  }
+
+  .lanes { position: relative; margin-top: 26px; }
+  .lane + .lane { margin-top: 17px; padding-top: 17px; border-top: 1px solid var(--border); }
+  .head { display: flex; align-items: baseline; gap: 12px; }
+  .name { font-size: 11.5px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; color: var(--faint); }
+  .meta { font-size: 13px; color: var(--muted); }
+  .pct { margin-left: auto; font-size: 27px; font-weight: 650; letter-spacing: -.025em; font-variant-numeric: tabular-nums; line-height: 1; }
+
+  .strip { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 3px; margin-top: 10px; }
+  .cell { position: relative; height: 22px; border-radius: 4px; background: var(--track); overflow: hidden; }
+  .cell i { display: block; height: 100%; width: 0; border-radius: 4px; background: var(--g); transition: width .9s cubic-bezier(.2,.7,.2,1); }
+  .cell.now::after { content: ""; position: absolute; inset: 0; border-radius: 4px; box-shadow: inset 0 0 0 2px var(--ring); }
+  .cell .lbl {
+    position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+    font-size: 10.5px; font-weight: 700; letter-spacing: .12em;
+    color: var(--faint); z-index: 2; pointer-events: none;
+  }
+  .cell.on .lbl { color: #fff; }
+  .lane.year  { --g: var(--g-year); }
+  .lane.month { --g: var(--g-month); }
+  .lane.week  { --g: var(--g-week); }
+
+  @media (max-width: 620px) {
+    .card { padding: 20px 18px 22px; }
+    .dateline { font-size: 25px; }
+    .pct { font-size: 21px; }
+    .cell { height: 16px; border-radius: 4px; }
+    .chip { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+
+    <div class="top">
+      <div>
+        <div class="dateline" id="dateline">&nbsp;</div>
+        <div class="sub">Capture, develop, and close creative work: ideas, projects, sessions and lessons in one system.</div>
+      </div>
+      <div class="chip" id="chip">&nbsp;</div>
+    </div>
+
+    <div class="lanes">
+      <section class="lane year">
+        <div class="head">
+          <span class="name">Year</span>
+          <span class="meta" id="m-year">&nbsp;</span>
+          <span class="pct" id="p-year">&nbsp;</span>
+        </div>
+        <div class="strip" id="s-year"></div>
+      </section>
+
+      <section class="lane month">
+        <div class="head">
+          <span class="name">Month</span>
+          <span class="meta" id="m-month">&nbsp;</span>
+          <span class="pct" id="p-month">&nbsp;</span>
+        </div>
+        <div class="strip" id="s-month"></div>
+      </section>
+
+      <section class="lane week">
+        <div class="head">
+          <span class="name">Week</span>
+          <span class="meta" id="m-week">&nbsp;</span>
+          <span class="pct" id="p-week">&nbsp;</span>
+        </div>
+        <div class="strip" id="s-week"></div>
+      </section>
+    </div>
+  </div>
+
+<script>
+(function () {
+  var MON = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var MON3 = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var WEEKDAY = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+  function pct(a, b) { return b ? Math.max(0, Math.min(100, (a / b) * 100)) : 0; }
+
+  // ISO 8601 week number: weeks start on Monday, week 1 holds the first Thursday
+  // Built in UTC on purpose: local time getters shift the date in negative offsets
+  function isoWeekOf(y, m, d) {
+    var t = new Date(Date.UTC(y, m, d));
+    var day = t.getUTCDay() || 7;
+    t.setUTCDate(t.getUTCDate() + 4 - day);
+    var yearStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+    return Math.ceil((((t - yearStart) / 86400000) + 1) / 7);
+  }
+
+  // A year has 53 ISO weeks when it starts on a Thursday, or on a Wednesday in a leap year
+  function isoWeeksInYear(y) {
+    return isoWeekOf(y, 11, 28);
+  }
+
+  function ensure(strip, n, labels) {
+    if (strip.childElementCount === n) return;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var c = document.createElement('div');
+      c.className = 'cell';
+      c.appendChild(document.createElement('i'));
+      if (labels) {
+        var s = document.createElement('span');
+        s.className = 'lbl';
+        s.textContent = labels[i];
+        c.appendChild(s);
+      }
+      frag.appendChild(c);
+    }
+    strip.innerHTML = '';
+    strip.appendChild(frag);
+  }
+
+  function paint(strip, values, titles, nowIdx) {
+    for (var i = 0; i < strip.children.length; i++) {
+      var cell = strip.children[i];
+      var bar = cell.firstChild;
+      var w = values[i].toFixed(1) + '%';
+      if (bar.style.width === '') {
+        bar.style.width = '0%';
+        (function (el, target) {
+          requestAnimationFrame(function () { el.style.width = target; });
+        })(bar, w);
+      } else {
+        bar.style.width = w;
+      }
+      cell.classList.toggle('now', i === nowIdx);
+      cell.classList.toggle('on', values[i] > 50);
+      if (titles && titles[i]) cell.title = titles[i];
+    }
+  }
+
+  function render() {
+    var now = new Date();
+    var y = now.getFullYear();
+    var m = now.getMonth();
+    var d = now.getDate();
+    var dayFrac = (now.getHours() * 60 + now.getMinutes()) / 1440;
+
+    document.getElementById('dateline').textContent =
+      now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+
+    var startOfYear = new Date(y, 0, 1);
+    var endOfYear = new Date(y + 1, 0, 1);
+    var daysInYear = Math.round((endOfYear - startOfYear) / 86400000);
+    var dayOfYear = Math.floor((now - startOfYear) / 86400000);
+    var daysInMonth = new Date(y, m + 1, 0).getDate();
+    var dayIdx = (now.getDay() + 6) % 7;
+
+    var yearPct = pct(dayOfYear + dayFrac, daysInYear);
+    var monthPct = pct(d - 1 + dayFrac, daysInMonth);
+    var weekPct = pct(dayIdx + dayFrac, 7);
+
+    // Year strip: one cell per month
+    var yv = [], yt = [];
+    for (var i = 0; i < 12; i++) {
+      yv.push(i < m ? 100 : i === m ? pct(d - 1 + dayFrac, daysInMonth) : 0);
+      yt.push(MON[i] + ' ' + y);
+    }
+    ensure(document.getElementById('s-year'), 12);
+    paint(document.getElementById('s-year'), yv, yt, m);
+
+    // Month strip: one cell per day
+    var mv = [], mt = [];
+    for (var j = 1; j <= daysInMonth; j++) {
+      mv.push(j < d ? 100 : j === d ? dayFrac * 100 : 0);
+      mt.push(MON3[m] + ' ' + j);
+    }
+    ensure(document.getElementById('s-month'), daysInMonth);
+    paint(document.getElementById('s-month'), mv, mt, d - 1);
+
+    // Week strip: Monday to Sunday
+    var wv = [], wt = [];
+    for (var k = 0; k < 7; k++) {
+      wv.push(k < dayIdx ? 100 : k === dayIdx ? dayFrac * 100 : 0);
+      wt.push(WEEKDAY[k]);
+    }
+    ensure(document.getElementById('s-week'), 7, ['M', 'T', 'W', 'T', 'F', 'S', 'S']);
+    paint(document.getElementById('s-week'), wv, wt, dayIdx);
+
+    document.getElementById('p-year').textContent = Math.round(yearPct) + '%';
+    document.getElementById('p-month').textContent = Math.round(monthPct) + '%';
+    document.getElementById('p-week').textContent = Math.round(weekPct) + '%';
+
+    document.getElementById('m-year').textContent = 'day ' + (dayOfYear + 1) + ' of ' + daysInYear;
+    document.getElementById('m-month').textContent = 'day ' + d + ' of ' + daysInMonth;
+    document.getElementById('m-week').textContent = 'day ' + (dayIdx + 1) + ' of 7';
+
+    var weekNo = isoWeekOf(y, m, d);
+    var totalWeeks = isoWeeksInYear(y);
+    var quarter = Math.floor(m / 3) + 1;
+    document.getElementById('chip').textContent = 'Q' + quarter + ' · week ' + weekNo + '/' + totalWeeks;
+  }
+
+  render();
+  // stays correct if the page is left open past midnight
+  setInterval(render, 60000);
+  window.addEventListener('focus', render);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Archivos de notas y borradores del concurso
+*.md
+!README.md
+*.txt
+*.py
+*.ps1
+*.png
+!assets/*.png
+*.genie
+.workbuddy/
+.system_generated/
+Challenge #AIforImpact/
+Javier Quilumba*/
+slides.html
+prototypes/
+widgets/
+assets/*.py

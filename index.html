@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Aprendiz — Aprende Oficios Tradicionales con Maestros Artesanos & IA</title>
+  
+  <!-- Tipografía Editorial y de Alta Legibilidad -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==================================================== -->
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR CON LOGO OFICIAL        -->
+  <!-- ==================================================== -->
+  <header class="navbar">
+    <a href="#" class="nav-brand" onclick="switchTab('home')">
+      <!-- LOGO OFICIAL "EL APRENDIZ" -->
+      <div class="brand-icon" title="El Aprendiz — Sabiduría Ancestral e Inteligencia Artificial">
+        <img src="assets/logo_el_aprendiz.jpg" alt="Logo Oficial El Aprendiz" class="brand-logo-img">
+      </div>
+      <div>
+        <div class="brand-title">El Aprendiz</div>
+        <div class="brand-subtitle">Aprender con Artesanos & IA</div>
+      </div>
+    </a>
+
+    <!-- Pestañas Claras, Intuitivas y Directas -->
+    <nav class="nav-tabs">
+      <button class="nav-btn active" id="tab-home" onclick="switchTab('home')">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Inicio
+      </button>
+      <button class="nav-btn" id="tab-plan" onclick="switchTab('plan')">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+        Mi Clase (Tocachi)
+      </button>
+      <button class="nav-btn" id="tab-workshop" onclick="switchTab('workshop')">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Subir Aprendizajes
+      </button>
+      <button class="nav-btn" id="tab-synthesis" onclick="switchTab('synthesis')">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3m-2.6-6.4l-2.1 2.1m-8.6 8.6l-2.1 2.1m0-12.8l2.1 2.1m8.6 8.6l2.1 2.1"/></svg>
+        Plan & Apuntes IA
+      </button>
+      <button class="nav-btn" id="tab-mentor" onclick="switchTab('mentor')">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Pregúntale al Maestro
+      </button>
+      <button class="nav-btn" id="tab-credential" onclick="switchTab('credential')">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        Certificado & Ganancias
+      </button>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="status-pill">
+        <div class="pulse-dot"></div>
+        <span>Modo Local (100% Funcional)</span>
+      </div>
+      <div class="user-pill">
+        <div class="user-avatar">JQ</div>
+        <span>Javier (Aprendiz)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================================================== -->
+  <!-- CONTENEDOR PRINCIPAL DE PANTALLAS                    -->
+  <!-- ==================================================== -->
+  <main class="main-content">
+
+    <!-- ==================================================== -->
+    <!-- PANTALLA 1: INICIO (NEGOCIO CLARO Y GANAR-GANAR)    -->
+    <!-- ==================================================== -->
+    <section class="view-panel active" id="view-home">
+      
+      <!-- HERO A PANTALLA COMPLETA (EDGE-TO-EDGE, SIN RECTÁNGULOS) -->
+      <div class="hero-banner">
+        <div class="hero-inner">
+          <!-- Insignia de Identidad Cultural en la esquina del Hero -->
+          <div class="hero-corner-badge" title="Identidad Cultural: El Aprendiz">
+            <img src="assets/logo_el_aprendiz.jpg" alt="Emblema El Aprendiz" class="hero-corner-logo-img">
+            <div class="corner-brand-info">
+              <span class="corner-brand-title">EL APRENDIZ</span>
+              <span class="corner-brand-sub">Aprender con Artesanos & IA</span>
+            </div>
+          </div>
+
+          <div class="hero-tagline">
+            <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Aprender con Artesanos & IA
+          </div>
+
+          <h1 class="hero-title">Aprende un oficio tradicional con un maestro. Nutre a la IA y co-crea su programa de estudio.</h1>
+          <p class="hero-desc">
+            Vas al taller a practicar y documentas la clase con tu propio teléfono (audios, fotos y notas). Al volver, la Inteligencia Artificial estructura un <strong>Programa de Aprendizaje formal</strong>: puedes usarlo solo para ti o ponerlo a la venta en la plataforma en un <strong>modelo ganar-ganar</strong> (50% para el maestro + comisión para ti).
+          </p>
+
+          <!-- BUSCADOR DIRECTO DENTRO DEL HERO -->
+          <div class="hero-search-wrapper" style="margin-bottom: 2.2rem;">
+            <div class="hero-search-box">
+              <div class="search-input-wrapper">
+                <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="trade-search-input" class="search-input" placeholder="¿Qué oficio te gustaría aprender o documentar? (Ej: tejido andino, tallado en madera, tintes)..." onkeypress="if(event.key === 'Enter') searchTrade()">
+              </div>
+              <button class="btn-search" onclick="searchTrade()">
+                <span>Buscar Taller</span>
+              </button>
+            </div>
+
+            <!-- Filtros Rápidos -->
+            <div class="trade-filter-bar">
+              <button class="filter-pill active" onclick="filterTrade('todos', this)">Todos los Talleres</button>
+              <button class="filter-pill" onclick="filterTrade('textil', this)">Tejido Andino (Tocachi)</button>
+              <button class="filter-pill" onclick="filterTrade('telar', this)">Tintes & Telar (Otavalo)</button>
+              <button class="filter-pill" onclick="filterTrade('madera', this)">Tallado en Madera (San Antonio)</button>
+            </div>
+
+            <!-- Caja de Recomendación IA -->
+            <div class="match-result-box" id="match-box" style="display: none;">
+              <div class="match-icon-badge">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div>
+                <strong style="color: var(--secondary); font-size: 0.95rem;" id="match-title">Taller Recomendado:</strong>
+                <p style="font-size: 0.88rem; color: #334155; margin-top: 4px;" id="match-desc">
+                  Buscando talleres y maestros disponibles...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- LLAMADOS A LA ACCIÓN CLAROS -->
+          <div class="hero-cta-group">
+            <button class="btn-hero-primary" onclick="scrollToMentors()">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>Ver Maestros y Oficios Disponibles</span>
+            </button>
+            <button class="btn-hero-secondary" onclick="switchTab('workshop')">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Subir Aprendizajes del Taller (Sesión 3)</span>
+            </button>
+          </div>
+
+          <!-- TRES BENEFICIOS DIRECTOS LIBRES (SIN CAJAS NI RECTÁNGULOS) -->
+          <div class="hero-pillars-row">
+            <div class="pillar-item">
+              <div class="pillar-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                1. Práctica Real con las Manos
+              </div>
+              <p class="pillar-desc">
+                Aprendes directamente en la mesa de un maestro experimentado en su taller, sin pantallas que lo distraigan.
+              </p>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-title">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3m-2.6-6.4l-2.1 2.1m-8.6 8.6l-2.1 2.1m0-12.8l2.1 2.1m8.6 8.6l2.1 2.1"/></svg>
+                2. La IA Estructura tu Curso
+              </div>
+              <p class="pillar-desc">
+                Subes tus audios, fotos y notas. La IA organiza todo en un programa paso a paso y entrena a tu tutor virtual 24/7.
+              </p>
+            </div>
+
+            <div class="pillar-item">
+              <div class="pillar-title">
+                <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                3. Negocio Ganar-Ganar
+              </div>
+              <p class="pillar-desc">
+                Si tú y el maestro deciden publicar el curso, ambos reciben ganancias por cada nuevo estudiante inscrito.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENEDOR CENTRADO DE CONTENIDO DE INICIO -->
+      <div class="home-content-container">
+
+      <!-- ==================================================== -->
+      <!-- CÓMO FUNCIONA EL MODELO EN 3 PASOS SIMPLES           -->
+      <!-- ==================================================== -->
+      <div class="how-it-works-section">
+        <div class="how-header">
+          <h2 class="section-title font-serif">¿Cómo funciona el modelo de negocio?</h2>
+          <p class="section-subtitle">Tú eres el puente: aprendes un oficio ancestral, nutres a la IA y todos ganan:</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Paso 1 -->
+          <div class="step-card">
+            <div>
+              <div class="step-number-badge">1</div>
+              <h3 class="step-title">Ve al Taller y Registra con tu Teléfono</h3>
+              <p class="step-desc">
+                Aprendes con tus manos en la mesa del maestro. Usas las aplicaciones habituales de tu celular (grabadora de voz, fotos, videos y notas) para capturar sus técnicas y secretos sin incomodarlo con pantallas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 2 -->
+          <div class="step-card">
+            <div>
+              <div class="step-number-badge">2</div>
+              <h3 class="step-title">Sube tus Archivos y Nutre a la IA</h3>
+              <p class="step-desc">
+                Al volver a casa, compartes todo lo recopilado. La Inteligencia Artificial analiza los audios y fotos para estructurar un <strong>Programa de Estudio formal</strong> con criterios de calidad y un tutor virtual 24/7.
+              </p>
+            </div>
+          </div>
+
+          <!-- Paso 3 -->
+          <div class="step-card">
+            <div>
+              <div class="step-number-badge">3</div>
+              <h3 class="step-title">Modelo Ganar-Ganar (Monetiza el Curso)</h3>
+              <p class="step-desc">
+                ¿Quieres vender el programa? Con el acuerdo del maestro, se publica en la plataforma para nuevos estudiantes: <strong>el 50% va al maestro</strong>, <strong>tú ganas comisión como aprendiz-creador</strong> y el saber no muere.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner de Ganar-Ganar -->
+        <div class="mutual-benefit-banner">
+          <div style="display: flex; align-items: center; gap: 0.9rem;">
+            <svg class="icon icon-lg" style="color: var(--accent-gold);" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <div>
+              <strong style="color: var(--text-heading); font-size: 0.95rem;">Un Negocio Ético donde Todos Ganan</strong>
+              <p style="font-size: 0.86rem; color: var(--text-muted); margin-top: 2px;">
+                El maestro recibe ingresos dignos para su hogar sin tener que usar tecnología. El aprendiz gana comisiones por su trabajo de campo y la comunidad aprende saberes que estaban en riesgo de extinción.
+              </p>
+            </div>
+          </div>
+          <button class="btn-action" style="background: white; border: 1px solid #fed7aa; color: var(--text-heading); white-space: nowrap;" onclick="switchTab('credential')">
+            Ver Reparto de Ganancias
+          </button>
+        </div>
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- CARRUSEL HORIZONTAL DE MAESTROS Y TALLERES          -->
+      <!-- ==================================================== -->
+      <div class="carousel-section" id="mentors-carousel-section">
+        <div class="carousel-nav-wrap">
+          <div>
+            <h2 class="section-title font-serif">Maestros y Talleres Disponibles</h2>
+            <p class="section-subtitle">Aprende directamente de artesanos mayores en sus propios talleres de trabajo</p>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" onclick="scrollCarousel(-1)" title="Anterior">
+              <svg class="icon" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel-btn" onclick="scrollCarousel(1)" title="Siguiente">
+              <svg class="icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenedor del Carrusel Horizontal con Portadas 16:9 -->
+        <div class="carousel-track-container" id="carousel-container">
+          <div class="carousel-track">
+            
+            <!-- TARJETA 1: Maestra Rosa Quilumba (Tocachi) -->
+            <div class="carousel-card active-focus" data-trade="textil">
+              <div class="card-cover-wrapper">
+                <img src="assets/maestra_rosa.jpg" alt="Maestra Rosa Quilumba tejiendo en Tocachi" class="card-cover-img">
+                <span class="card-cover-badge">Tu Taller Activo</span>
+                <span class="card-royalty-badge">50% Maestro + Comisión Aprendiz</span>
+              </div>
+              <div class="card-content">
+                <div>
+                  <div class="badge-trade">Confección & Tejido Tradicional</div>
+                  <h3 class="card-mentor-name font-serif">Maestra Rosa Quilumba</h3>
+                  <div class="card-mentor-loc">
+                    <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Tocachi, Pedro Moncayo · 70 años · 45 años de oficio
+                  </div>
+                  <div class="card-program-title">Confección en Bayeta, Tensión Manual y Remate Invisible</div>
+                  <p class="card-program-summary">
+                    Aprende a cortar telas tradicionales, sentir la tensión exacta del hilo con los dedos y rematar piezas sin que se desarmen al lavarlas.
+                  </p>
+                  <div class="meta-pills-row">
+                    <span class="tag-chip">10 Sesiones Prácticas</span>
+                    <span class="tag-chip">Tutor IA en Casa</span>
+                    <span class="tag-chip">Diploma Firmado</span>
+                  </div>
+                </div>
+                <div class="card-action-bar">
+                  <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>Sesión 3 para nutrir</span>
+                  </div>
+                  <button class="btn-action" style="background: var(--primary);" onclick="switchTab('plan')">
+                    Ver Mi Clase
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- TARJETA 2: Maestro José Lema (Otavalo) -->
+            <div class="carousel-card" data-trade="telar">
+              <div class="card-cover-wrapper">
+                <img src="assets/maestro_jose.jpg" alt="Maestro José Lema en Otavalo" class="card-cover-img">
+                <span class="card-cover-badge">Cupos Disponibles</span>
+                <span class="card-royalty-badge">50% Maestro + Comisión Aprendiz</span>
+              </div>
+              <div class="card-content">
+                <div>
+                  <div class="badge-trade">Tintura Botánica & Telar</div>
+                  <h3 class="card-mentor-name font-serif">Maestro José Lema</h3>
+                  <div class="card-mentor-loc">
+                    <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Peguche, Otavalo · 68 años · 35 años de oficio
+                  </div>
+                  <div class="card-program-title">Extracción de Tintes Naturales y Montaje en Telar</div>
+                  <p class="card-program-summary">
+                    Aprende a hervir cáscara de nogal y plantas nativas para fijar colores vivos en la lana, y arma la urdimbre de un telar indígena.
+                  </p>
+                  <div class="meta-pills-row">
+                    <span class="tag-chip">8 Sesiones Prácticas</span>
+                    <span class="tag-chip">2 Cupos Libres</span>
+                  </div>
+                </div>
+                <div class="card-action-bar">
+                  <div class="status-badge" style="color: var(--text-muted);">
+                    <span>Inscripciones abiertas</span>
+                  </div>
+                  <button class="btn-action" style="background: transparent; color: var(--text-heading); border: 1px solid var(--border-subtle);" onclick="alert('¡Solicitud enviada! Nos pondremos en contacto con la familia del Maestro José en Otavalo para coordinar tu primera visita.')">
+                    Solicitar Cupo
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- TARJETA 3: Maestro Carlos Morales (San Antonio) -->
+            <div class="carousel-card" data-trade="madera">
+              <div class="card-cover-wrapper">
+                <img src="assets/maestro_carlos.jpg" alt="Maestro Carlos Morales en San Antonio de Ibarra" class="card-cover-img">
+                <span class="card-cover-badge">Próxima Apertura</span>
+                <span class="card-royalty-badge">50% Maestro + Comisión Aprendiz</span>
+              </div>
+              <div class="card-content">
+                <div>
+                  <div class="badge-trade">Tallado Artístico en Madera</div>
+                  <h3 class="card-mentor-name font-serif">Maestro Carlos Morales</h3>
+                  <div class="card-mentor-loc">
+                    <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    San Antonio de Ibarra · 65 años · 30 años de oficio
+                  </div>
+                  <div class="card-program-title">Escultura en Cedro y Afilado de Gubias a Mano</div>
+                  <p class="card-program-summary">
+                    Domina el afilado a la piedra, aprende a leer la veta de la madera para no astillarla y esculpe figuras tradicionales paso a paso.
+                  </p>
+                  <div class="meta-pills-row">
+                    <span class="tag-chip">Taller en Preparación</span>
+                    <span class="tag-chip">1 Aprendiz Activo</span>
+                  </div>
+                </div>
+                <div class="card-action-bar">
+                  <div class="status-badge" style="color: var(--text-muted);">
+                    <span>Fase de preparación</span>
+                  </div>
+                  <button class="btn-action" style="background: transparent; color: var(--text-heading); border: 1px solid var(--border-subtle);" onclick="alert('Este taller está siendo preparado por un aprendiz en San Antonio. Te avisaremos cuando se abran nuevos cupos.')">
+                    Avisarme al Abrir
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Indicadores Dots -->
+        <div class="carousel-dots">
+          <div class="carousel-dot active" onclick="goToCarouselSlide(0)"></div>
+          <div class="carousel-dot" onclick="goToCarouselSlide(1)"></div>
+          <div class="carousel-dot" onclick="goToCarouselSlide(2)"></div>
+        </div>
+      </div>
+    </div> <!-- Cierre de home-content-container -->
+  </section>
+
+    <!-- ==================================================== -->
+    <!-- PANTALLA 2: MI CLASE (TOCACHI)                      -->
+    <!-- ==================================================== -->
+    <section class="view-panel" id="view-plan">
+      <div class="project-header-card">
+        <div class="project-mentor-meta">
+          <img src="assets/maestra_rosa.jpg" alt="Rosa" class="project-mentor-avatar">
+          <div>
+            <div class="badge-trade">Tu Taller Activo</div>
+            <h2 class="font-serif" style="font-size: 1.85rem; margin: 2px 0 4px;">Mi Clase: Confección y Tejido en Tocachi</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              Maestra Rosa Quilumba (70 años) · Sesión 3 de 10 · Aprendiz: Javier Quilumba
+            </p>
+          </div>
+        </div>
+        <button class="btn-action" onclick="switchTab('workshop')" style="background: var(--primary); padding: 0.8rem 1.4rem;">
+          <span>Subir lo Aprendido en el Taller de Hoy</span>
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </button>
+      </div>
+
+      <!-- RESPETO Y ACUERDO CON LA FAMILIA DEL MAESTRO -->
+      <div class="consent-banner">
+        <div>
+          <strong style="color: var(--accent-sage); font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem;">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            Taller Autorizado y Protegido con la Familia
+          </strong>
+          <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 2px;">
+            La familia de la Maestra Rosa autorizó este espacio de aprendizaje. Ella solo enseña con sus manos; tú te encargas de documentar con tu teléfono y la plataforma garantiza el reparto ético.
+          </p>
+          <div class="consent-layers-list">
+            <div class="consent-layer-item">
+              <svg class="icon" style="color: var(--accent-sage);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>1. Permiso familiar firmado</span>
+            </div>
+            <div class="consent-layer-item">
+              <svg class="icon" style="color: var(--accent-sage);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>2. Acompañada por su hija</span>
+            </div>
+            <div class="consent-layer-item">
+              <svg class="icon" style="color: var(--accent-sage);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>3. Cero pantallas para la maestra</span>
+            </div>
+            <div class="consent-layer-item">
+              <svg class="icon" style="color: var(--accent-sage);" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>4. 50% de ganancias para su hogar</span>
+            </div>
+          </div>
+        </div>
+        <button class="btn-action" style="background: white; color: var(--text-heading); border: 1px solid var(--border-subtle);" onclick="alert('Acuerdo de Co-creación Ética firmado con la familia de la Maestra Rosa en Tocachi.')">
+          Ver Acuerdo
+        </button>
+      </div>
+
+      <!-- GUÍA DE PREGUNTAS Y MATERIALES -->
+      <div class="plan-grid">
+        <div class="pauta-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem;">
+            <h3 class="font-serif" style="font-size: 1.35rem;">Guía de Preguntas para Grabar con tu Teléfono</h3>
+            <span class="tag-chip" style="background: var(--primary-subtle); color: var(--primary); font-weight:700;">Sesión 3 · Tensión y Remate</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+            Preguntas técnicas clave para hacerle a la maestra mientras grabas el audio o tomas fotos con tu celular:
+          </p>
+
+          <div class="pauta-step">
+            <div class="pauta-step-num">Paso 1 · Probar la Tela</div>
+            <strong>¿Cómo sentir la fibra antes de cortar?</strong>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">
+              «Pregúntale a la maestra cómo prueba con los dedos el sentido del hilo para que la prenda no se deforme con el uso. Graba su explicación.»
+            </p>
+          </div>
+
+          <div class="pauta-step">
+            <div class="pauta-step-num">Paso 2 · Medir la Tensión</div>
+            <strong>¿Cómo saber si el hilo está muy apretado?</strong>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">
+              «Toma una foto de cerca a sus manos mientras te muestra qué siente en los dedos antes de que la puntada empiece a arrugar la tela.»
+            </p>
+          </div>
+
+          <div class="pauta-step">
+            <div class="pauta-step-num">Paso 3 · El Remate Invisible</div>
+            <strong>¿Cuál es el truco para que nunca se desate?</strong>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">
+              «Graba un video corto de 30 segundos mientras asegura el último nudo dentro de la tela y anota la anécdota de cuando era joven.»
+            </p>
+          </div>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center;">
+            <button class="btn-action" style="background: var(--secondary);" onclick="alert('Guía guardada en la memoria de tu celular. Podrás revisarla en el taller aunque no tengas internet.');">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Guardar Guía en el Celular (Sin Conexión)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="checklist-card">
+          <h3 class="font-serif" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Qué Llevar al Taller Hoy</h3>
+          <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Revisa tu mochila antes de salir hacia Tocachi:
+          </p>
+
+          <div class="checklist-item">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            <span>Tela de lino y bayeta previamente lavadas</span>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            <span>Hebra de hilo encerado tradicional</span>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            <span>Tijeras de forja manual y agujas capoteras</span>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            <span>Celular con batería llena (cámara y grabadora de voz)</span>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            <span>Cuaderno físico para notas rápidas</span>
+          </div>
+
+          <div style="margin-top: 1.6rem; padding: 1rem; background: var(--surface-subtle); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <strong style="font-size: 0.82rem; color: var(--primary); display:block; margin-bottom: 2px;">Apoyo Mutuo en Taller:</strong>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">
+              Hoy ayudarás a la Maestra Rosa a coser los forros de 4 bolsos que tiene pedidos para la feria de fin de semana.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PANTALLA 3: SUBIR Y NUTRIR EL PROGRAMA CON TU TALLER -->
+    <!-- ==================================================== -->
+    <section class="view-panel" id="view-workshop">
+      
+      <!-- ENCABEZADO EXPLICATIVO DEL ROL DEL APRENDIZ -->
+      <div class="nutrir-header-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem;">
+          <div class="tag-chip" style="background: var(--primary-subtle); color: var(--primary); font-weight: 700;">
+            El Aprendiz es el Investigador y Co-Creador
+          </div>
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Sesión 3 · Taller Tocachi</span>
+        </div>
+        <h2 class="font-serif" style="font-size: 1.85rem; margin-bottom: 0.6rem;">Nutre a la IA con lo que Aprendiste en el Taller</h2>
+        <p style="color: var(--text-body); font-size: 0.95rem; max-width: 820px; line-height: 1.6;">
+          En el taller no te distraes con páginas web: trabajas con tus manos y grabas con las aplicaciones habituales de tu teléfono (grabadora de voz, cámara y notas). Al regresar a tu computadora, <strong>comparte aquí todo tu material</strong>. La Inteligencia Artificial lo analizará para estructurar un <strong>Plan de Estudio profesional</strong> y entrenar a tu tutor virtual 24/7.
+        </p>
+      </div>
+
+      <!-- ZONA DE CARGA MULTIFORMATO (3 COLUMNAS) -->
+      <div class="upload-grid">
+        
+        <!-- Módulo 1: Audios de la Clase -->
+        <div class="upload-card">
+          <div>
+            <div class="upload-card-header">
+              <div class="upload-icon-badge">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              </div>
+              <div>
+                <strong style="font-size: 1rem; color: var(--text-heading);">1. Audios de la Clase</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Grabados con la app de voz de tu celular</p>
+              </div>
+            </div>
+
+            <div class="uploaded-file-item">
+              <div style="display: flex; align-items: center; gap: 0.6rem;">
+                <svg class="icon" style="color: var(--primary);" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <div>
+                  <strong style="font-size: 0.85rem; display:block;">sesion3_rosa_tocachi.m4a</strong>
+                  <span style="font-size: 0.75rem; color: var(--text-muted);">24 min · 18.4 MB</span>
+                </div>
+              </div>
+              <span class="file-status-tag">Listo</span>
+            </div>
+          </div>
+
+          <button class="btn-upload-more" onclick="alert('Selecciona más audios de tu teléfono o computadora para agregarlos a la sesión.')">
+            <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Subir otra grabación</span>
+          </button>
+        </div>
+
+        <!-- Módulo 2: Fotos y Videos de la Técnica -->
+        <div class="upload-card">
+          <div>
+            <div class="upload-card-header">
+              <div class="upload-icon-badge">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              </div>
+              <div>
+                <strong style="font-size: 1rem; color: var(--text-heading);">2. Fotos y Videos</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Manos, posturas, nudos y fibras</p>
+              </div>
+            </div>
+
+            <div class="uploaded-file-item">
+              <div>
+                <strong style="font-size: 0.85rem; display:block;">8 fotos + 1 video demostrativo</strong>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Capturados en el taller de Tocachi</span>
+              </div>
+              <span class="file-status-tag">Listas</span>
+            </div>
+
+            <!-- Miniaturas reales -->
+            <div class="photo-thumbnails-row">
+              <img src="assets/maestra_rosa.jpg" alt="Puntada" class="photo-thumb">
+              <img src="assets/maestra_rosa.jpg" alt="Tensión" class="photo-thumb" style="filter: brightness(0.9) contrast(1.1);">
+              <img src="assets/maestra_rosa.jpg" alt="Remate" class="photo-thumb" style="filter: sepia(0.2);">
+            </div>
+          </div>
+
+          <button class="btn-upload-more" onclick="alert('Selecciona fotos o videos adicionales tomados durante la clase.')">
+            <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>Subir más fotos o videos</span>
+          </button>
+        </div>
+
+        <!-- Módulo 3: Notas de Campo del Aprendiz -->
+        <div class="upload-card">
+          <div>
+            <div class="upload-card-header">
+              <div class="upload-icon-badge">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </div>
+              <div>
+                <strong style="font-size: 1rem; color: var(--text-heading);">3. Tus Notas de Campo</strong>
+                <p style="font-size: 0.78rem; color: var(--text-muted);">Tus observaciones y anécdotas</p>
+              </div>
+            </div>
+
+            <textarea class="note-input" id="field-notes-text">Apunte de campo en Tocachi: La Maestra Rosa usa hebra doble encerada para que resista la humedad. Pasa la yema del pulgar para verificar la tensión de la puntada: debe sentirse como cuerda afinada...</textarea>
+          </div>
+
+          <button class="btn-upload-more" onclick="alert('También puedes subir fotos de las páginas de tu cuaderno escrito a mano para que la IA extraiga el texto.');">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <span>Subir foto de libreta a mano</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- SELECTOR DE MODELO DE NEGOCIO (GANAR-GANAR)          -->
+      <!-- ==================================================== -->
+      <div class="business-model-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;">
+          <div>
+            <div class="tag-chip" style="background: var(--accent-gold-subtle); color: var(--accent-gold); font-weight:700;">
+              Acuerdo de Destino & Consentimiento del Mentor
+            </div>
+            <h3 class="font-serif" style="font-size: 1.35rem; margin-top: 4px;">¿Qué deseas hacer con el programa que estás creando?</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">
+              Todo depende del nivel de permiso acordado con la Maestra Rosa y su familia:
+            </p>
+          </div>
+        </div>
+
+        <div class="business-options-grid">
+          
+          <!-- Opción 1: Privado -->
+          <div class="business-option" id="opt-personal" onclick="selectBusinessOption('personal')">
+            <div>
+              <strong style="font-size: 1.05rem; color: var(--text-heading); display: block; margin-bottom: 4px;">
+                Solo para mi estudio personal (Privado)
+              </strong>
+              <p style="font-size: 0.86rem; color: var(--text-muted); line-height: 1.5;">
+                Tienes el consentimiento básico de la maestra para grabar la clase. La IA estructurará tu plan de estudio y tu tutor virtual únicamente para tu práctica individual. Nadie más verá este contenido.
+              </p>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">
+              ✓ Permiso de grabación en taller concedido
+            </div>
+          </div>
+
+          <!-- Opción 2: Ganar-Ganar (Recomendado) -->
+          <div class="business-option selected" id="opt-vender" onclick="selectBusinessOption('vender')">
+            <span class="business-option-kicker">Recomendado · Ganar-Ganar</span>
+            <div>
+              <strong style="font-size: 1.05rem; color: var(--primary); display: block; margin-bottom: 4px;">
+                Publicar y Poner a la Venta el Programa
+              </strong>
+              <p style="font-size: 0.86rem; color: var(--text-body); line-height: 1.5;">
+                Acuerdo de co-creación firmado con la familia de la maestra. El programa estructurado se publicará en la plataforma para que otros jóvenes puedan aprender este oficio tradicional.
+              </p>
+            </div>
+
+            <!-- Desglose de Reparto -->
+            <div class="revenue-split-row">
+              <div class="split-pill">
+                <strong>50%</strong>
+                <span>Para la Maestra Rosa</span>
+              </div>
+              <div class="split-pill">
+                <strong>Comisión</strong>
+                <span>Para ti (Aprendiz-Autor)</span>
+              </div>
+              <div class="split-pill">
+                <strong>Servicio</strong>
+                <span>Plataforma & IA</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- BANNER DE ACCIÓN: PROCESAR CON IA                    -->
+      <!-- ==================================================== -->
+      <div class="process-cta-banner">
+        <div>
+          <strong style="font-size: 1.15rem; display: block; margin-bottom: 4px;">
+            ¿Listo para estructurar el Programa de Aprendizaje?
+          </strong>
+          <p style="font-size: 0.88rem; color: #cbd5e1;">
+            La IA analizará el audio de 24 min, transcribirá los testimonios, etiquetará las 8 fotos y preparará tus notas de estudio.
+          </p>
+        </div>
+        <button class="btn-process-ai" onclick="processSessionWithAI()">
+          <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Estructurar Programa con IA</span>
+        </button>
+      </div>
+
+      <!-- Indicador dinámico de procesamiento -->
+      <div class="processing-indicator" id="processing-box">
+        <strong id="process-status-text" style="font-size: 0.95rem;">
+          Iniciando procesamiento con Inteligencia Artificial...
+        </strong>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="process-bar"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PANTALLA 4: PLAN & APUNTES ESTRUCTURADOS CON IA     -->
+    <!-- ==================================================== -->
+    <section class="view-panel" id="view-synthesis">
+      <div class="section-header">
+        <div>
+          <div class="tag-chip" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; margin-bottom: 4px;">
+            Generado con IA a partir de tus Audios, Fotos y Notas
+          </div>
+          <h2 class="section-title font-serif">Programa de Aprendizaje: Sesión 3 Estructurada</h2>
+          <p class="section-subtitle">Procesado: 24 min de audio grabados en Tocachi + 8 fotografías de taller + apuntes de campo</p>
+        </div>
+        <button class="btn-action" onclick="switchTab('mentor')">
+          <span>Hacerle una Pregunta al Tutor Inteligente</span>
+          <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
+      <div class="synthesis-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <span style="font-weight: 700; color: var(--text-heading); font-size: 1.05rem;">
+            Módulo Formativo Creado por el Aprendiz & la IA:
+          </span>
+          <span class="tag-chip" style="background: var(--accent-sage-subtle); color: var(--accent-sage); font-weight:700;">
+            Aprobado para Venta (Ganar-Ganar)
+          </span>
+        </div>
+
+        <div class="criterion-card">
+          <div class="quote-badge">
+            <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Los Secretos de la Maestra Rosa Quilumba
+          </div>
+          <h3 class="font-serif" style="color: var(--primary); font-size: 1.35rem; margin-bottom: 0.5rem;">
+            Cómo Saber si la Tensión de la Puntada es Perfecta
+          </h3>
+
+          <div class="criterion-grid">
+            <div class="crit-item">
+              <strong>1. Qué Mirar:</strong>
+              Que las puntadas vayan rectas y paralelas, y que la tela no forme arrugas ni pliegues a los costados al jalarla suavemente.
+            </div>
+            <div class="crit-item">
+              <strong>2. Cómo Comprobarlo:</strong>
+              Pasa la yema de tu pulgar sobre la costura: debe sentirse un relieve firme, como una cuerda de guitarra afinada.
+            </div>
+            <div class="crit-item">
+              <strong>3. Qué Evitar:</strong>
+              Nunca jales el hilo con demasiada fuerza. Si la tela se levanta, desbarata esa puntada de inmediato antes de seguir.
+            </div>
+            <div class="crit-item">
+              <strong>4. El Consejo de la Maestra:</strong>
+              «A los 20 años entregué un poncho que al lavarse se encogió en los bordes porque no pre-lavé la tela. Por eso, toda tela se trabaja húmeda.»
+            </div>
+          </div>
+        </div>
+
+        <!-- EVALUACIÓN Y SUGERENCIA PARA EL ESTUDIANTE -->
+        <div style="margin-top: 1.8rem; background: var(--surface-subtle); padding: 1.4rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <strong style="color: var(--text-heading); font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem;">
+            <svg class="icon" style="color: var(--primary);" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Sugerencia de la IA para tu Próxima Clase:
+          </strong>
+          <p style="font-size: 0.88rem; color: var(--text-body); margin-top: 6px; line-height: 1.55;">
+            «Javier: hiciste muy buenas preguntas sobre cómo tensar el hilo y rematar el bolso. Sin embargo, olvidaste preguntarle qué tipo de cera usa para proteger el hilo del agua. Ya lo dejamos anotado como pregunta automática para tu clase del próximo martes.»
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PANTALLA 5: PREGÚNTALE AL MAESTRO (TUTOR IA 24/7)   -->
+    <!-- ==================================================== -->
+    <section class="view-panel" id="view-mentor">
+      <div class="chat-container">
+        <div class="chat-header">
+          <div class="chat-mentor-profile">
+            <img src="assets/maestra_rosa.jpg" alt="Rosa" class="chat-mentor-avatar">
+            <div>
+              <h4 class="font-serif" style="font-size: 1.15rem;">Pregúntale a tu Maestra en Casa</h4>
+              <span style="font-size: 0.76rem; color: var(--accent-sage); font-weight: 600; display:flex; align-items:center; gap:4px;">
+                <span class="status-dot"></span>
+                Tutor inteligente entrenado con los audios y fotos de la Maestra Rosa en Tocachi
+              </span>
+            </div>
+          </div>
+          <span class="tag-chip" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;">
+            No Inventa Respuestas
+          </span>
+        </div>
+
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-bubble bubble-bot">
+            ¡Hola Javier! Estoy aquí mientras practicas solo en tu casa. Si tienes dudas sobre cómo coser, tensar o rematar tu pieza, escríbeme. Te responderé con las palabras, normas y fotos exactas que la Maestra Rosa nos enseñó en su taller de Tocachi.
+          </div>
+
+          <div class="chat-bubble bubble-user">
+            ¿Cómo sé si la tensión de mi puntada en el bolso está bien o si me va a arrugar la tela al lavarla?
+          </div>
+
+          <div class="chat-bubble bubble-bot">
+            <div class="quote-badge">
+              <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Consejo de la Maestra Rosa · Sesión 3 (Minuto 14:20)
+            </div>
+            <p>
+              «Pasa la yema de tu pulgar sobre la costura: debe sentirse un relieve firme, como cuerda afinada, pero sin que la tela haga ondas a los costados. Si la tela se levanta, afloja un punto de inmediato; si se te hunde el dedo, la hebra está muy suelta y se deshilachará con el uso.»
+            </p>
+            <div class="ref-image-box">
+              <img src="assets/maestra_rosa.jpg" alt="Puntada correcta" class="ref-img">
+              <div class="ref-caption">Foto de referencia en taller: Tensión aprobada sobre lino tradicional.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-input-bar">
+          <input type="text" class="chat-input" id="chat-user-input" placeholder="Escribe tu duda técnica (ej: ¿cuántas puntadas de remate debo dar?)..." onkeypress="if(event.key === 'Enter') sendChatMessage()">
+          <button class="btn-send" onclick="sendChatMessage()">
+            <svg class="icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PANTALLA 6: CERTIFICADO & REPARTO DE GANANCIAS      -->
+    <!-- ==================================================== -->
+    <section class="view-panel" id="view-credential">
+      <div class="credential-container">
+        <!-- DIPLOMA OFICIAL DE APRENDIZAJE -->
+        <div class="cert-frame">
+          <div class="cert-inner-border">
+            <div class="cert-header">
+              <div class="cert-seal">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <div class="badge-trade" style="font-size: 0.8rem;">Diploma de Aprendizaje Práctico</div>
+              <h2 class="cert-title font-serif">Certificado de Aprobación en Taller</h2>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">
+                Avalado por el examen presencial y la firma física del Maestro Artesano
+              </p>
+            </div>
+
+            <p style="font-size: 0.95rem; color: var(--text-body);">
+              Por haber completado las horas prácticas en taller, nutrir el registro del saber tradicional y dominar el corte, la tensión y el remate, se otorga este certificado a:
+            </p>
+
+            <div class="cert-recipient font-serif">Javier Quilumba</div>
+
+            <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 580px; margin: 0 auto;">
+              Formado directamente con la <strong>Maestra Rosa Quilumba</strong> en Tocachi, cantón Pedro Moncayo. Registro de taller verificado #TOC-2026-004.
+            </p>
+
+            <div class="cert-qr-box">
+              <div style="text-align: left;">
+                <strong style="color: var(--secondary); font-size: 0.92rem; display:block;">Verificación Digital</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Código: TOC-2026-JQ99</span>
+              </div>
+              <div class="qr-visual">
+                <svg style="width: 78px; height: 78px; fill: #f7b297;" viewBox="0 0 24 24"><path d="M3 3h6v6H3V3zm2 2v2h2V5H5zm8-2h6v6h-6V3zm2 2v2h2V5h-2zM3 13h6v6H3v-6zm2 2v2h2v-2H5zm13-2h3v2h-3v-2zm-2 2h2v3h-2v-3zm2 3h3v3h-3v-3zm-5-3h2v2h-2v-2zm0 3h2v3h-2v-3z"/></svg>
+              </div>
+              <div style="text-align: right;">
+                <strong style="color: var(--secondary); font-size: 0.92rem; display:block;">Firma del Maestro</strong>
+                <span style="font-size: 0.8rem; color: var(--accent-sage); font-weight:600;">✓ Aprobada en Taller Físico</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRANSPARENCIA TOTAL: REPARTO GANAR-GANAR -->
+        <div class="royalties-breakdown-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <h3 class="font-serif" style="font-size: 1.35rem;">Reparto Ganar-Ganar del Programa Publicado</h3>
+            <span class="tag-chip tag-royalty">50% Maestro + Comisión Aprendiz</span>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">
+            Liquidación mensual del programa creado por Javier Quilumba con la Maestra Rosa Quilumba:
+          </p>
+
+          <table class="royalty-table">
+            <thead>
+              <tr>
+                <th>Concepto</th>
+                <th>Estudiantes</th>
+                <th>Total Recaudado</th>
+                <th>50% para la Maestra</th>
+                <th>Comisión Aprendiz-Autor</th>
+                <th>Estado de Pago</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Curso de Confección Andina (Taller Tocachi)</strong></td>
+                <td>12 aprendices</td>
+                <td>$ 360,00 USD</td>
+                <td><strong style="color: var(--accent-sage);">$ 180,00 USD</strong></td>
+                <td><strong style="color: var(--primary);">$ 90,00 USD</strong></td>
+                <td><span class="status-badge"><span class="status-dot"></span>Transferido</span></td>
+              </tr>
+              <tr>
+                <td><strong>Consultas Técnicas al Tutor Inteligente</strong></td>
+                <td>48 consultas</td>
+                <td>$ 72,00 USD</td>
+                <td><strong style="color: var(--accent-sage);">$ 36,00 USD</strong></td>
+                <td><strong style="color: var(--primary);">$ 18,00 USD</strong></td>
+                <td><span class="status-badge"><span class="status-dot"></span>Transferido</span></td>
+              </tr>
+              <tr style="background: var(--surface-subtle); font-weight: bold;">
+                <td colspan="3">Total Mensual Liquidado</td>
+                <td style="color: var(--accent-sage); font-size: 1.05rem;">$ 216,00 USD</td>
+                <td style="color: var(--primary); font-size: 1.05rem;">$ 108,00 USD</td>
+                <td style="color: var(--text-heading); font-size: 0.82rem;">Pagos Acreditados</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================== -->
+  <!-- PIE DE PÁGINA                                        -->
+  <!-- ==================================================== -->
+  <footer>
+    <p><strong>El Aprendiz</strong> — Aprende Oficios Tradicionales con Maestros Artesanos & IA</p>
+    <p style="margin-top: 4px; font-size: 0.8rem; color: var(--text-muted, #718096);">
+      Preservación viva del saber ancestral y comercio justo · Tocachi & Quito, Ecuador
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
